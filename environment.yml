@@ -1,0 +1,11 @@
+name: ne204
+
+channels:
+    - defaults
+
+dependencies:
+    - python=3.6
+    - numpy
+    - matplotlib
+    - pandas
+    - seaborn
