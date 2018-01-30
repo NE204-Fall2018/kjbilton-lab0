@@ -1,6 +1,7 @@
-name: ne204
+name: ne204lab0
 
 channels:
+    - conda-forge
     - defaults
 
 dependencies:
@@ -9,3 +10,4 @@ dependencies:
     - matplotlib
     - pandas
     - seaborn
+    - nb_conda

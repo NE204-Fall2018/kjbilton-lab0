@@ -1,4 +1,8 @@
+# Set up variables specific to this analysis
+LABNUMBER=0
 manuscript = report
+
+# LaTeX
 latexopt = -file-line-error -halt-on-error
 
 # Build the PDF of the lab report from the source files
@@ -22,13 +26,25 @@ env : $(CONDA_REQUIREMENTS)
 	fi
 	conda env create -f $(CONDA_REQUIREMENTS)
 
-# Get/download necessary data
+## data		: Get/download necessary data
+LOCDATADIR=data
+FILEROOT=$(LOCDATADIR)/lab$(LABNUMBER)_spectral_data
 data :
-	echo "WARNING: make data has not yet been implemented."
+	@echo "Downloading data..."
+	if [ ! -d 'data' ]; then mkdir data; fi
+	wget https://www.dropbox.com/s/k692avun0144n90/lab0_spectral_data.txt?dl=0 -O $(FILEROOT).txt
+	wget https://www.dropbox.com/s/6jquiryg6jskii0/lab0_spectral_data.md5?dl=0 -O $(FILEROOT).md5
 
-# Validate that downloaded data is not corrupted
+## validate	: Validate that downloaded data is not corrupted
+OS=$(shell uname)
+# Determine the OS, since md5 utilies vary
+ifeq ($(OS),Darwin)
+	MD5=md5
+else
+	MD5=md5sum
+endif
 validate :
-	echo "WARNING: make validate has not yet been implemented."
+	@echo "\nValidating checksum..."
 
 ## test		: Run tests on analysis code
 test :
