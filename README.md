@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/NE204-Spring2018/kjbilton-lab0/master)
+
 # NE 204 Lab 0
 
 ## Overview
