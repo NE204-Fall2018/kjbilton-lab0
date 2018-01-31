@@ -1,1 +1,17 @@
-Experimental results go here.
+A nonlinear model was found using linear regression to be
+
+\begin{equation}
+E = -15.47 + 0.3589C - 3.749\times 10^{-5}C^2 + 4.550\times10^{-9}C^3
+\end{equation}
+
+We can see from this fit that the model is dominated by a linear term, but
+there are also slight deviations from linearity at high energies. Figure
+\ref{fig:fit} shows the fit superimposed on the original data points $(E_i, C_i)$.
+
+\begin{figure}[H]
+\label{fig:fit}
+\begin{center}
+\includegraphics[width=.6\linewidth]{../fig/calibration_fit.png}
+\caption{Resulting calibration fit}
+\end{center}
+\end{figure}
