@@ -1,12 +1,29 @@
-A nonlinear model was found using linear regression to be
+In the simplest case, we can use two points to determine a linear relationship
+using ordinary least squares. We used a two point fit with $^{137}$Cs and
+$^{241}$Am to give the model
 
 \begin{equation}
-E = -15.47 + 0.3589C - 3.749\times 10^{-5}C^2 + 4.550\times10^{-9}C^3
+E = 1.181 + 0.281 C
 \end{equation}
 
-We can see from this fit that the model is dominated by a linear term, but
-there are also slight deviations from linearity at high energies. Figure
-\ref{fig:fit} shows the fit superimposed on the original data points $(E_i, C_i)$.
+We can then use this model to estimate at which bins lines from $^{133}$Ba are
+expected to fall in.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{l|c|c|r}
+      \textbf{Source} & \textbf{Energy (keV)} & \textbf{Estimated Energy (keV)} & \textbf{Percent Error}\\
+      \hline
+      $^{133}$Ba    &  80.997    & 80.684   &  0.1632 \\
+                    &  356.017   & 356.110  &  -0.0261 \\
+    \end{tabular}
+  \end{center}
+\end{table}
+
+We see that the two estimated energies are quite close to the actual energies. In addition to using two points,
+it is also worth considering using additional data points, including some at higher energies. An ordinary least
+squares fit was performed on several points to obtain the line below. The solid line in Figure \ref{fig:fit} shows a fit using all data points,
+while the dashed line shows the two-point relationship.
 
 \begin{figure}[H]
 \label{fig:fit}
