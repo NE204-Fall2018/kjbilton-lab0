@@ -5,3 +5,10 @@ experts often time only use two energy measurements from a single source to dete
 specific applications may require nonlinear fitting. This can easily be accomplished
 my creating a feature matrix using higher powers of the measured centroids $C_i$ and
 again fitting with ordinary least squares.
+
+Aside from using a higher-order model, one could also improve the fit used to
+determine the peaks. Here, a Gaussian model was assumed, and no linear offset
+or background subtraction was performed. To more accurately determine the peak centers,
+one could fit a Gaussian superimposed on a linear model. In our case, the
+simplified fit provided results sufficient for the purpose of this exercise,
+so only a single Gaussian peak was used.
