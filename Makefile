@@ -46,9 +46,10 @@ endif
 validate :
 	#@$(eval MD5HASH_CALC=$(shell $(MD5) $(FILEROOT).txt | cut -f1 -d ' '))
 	#@$(eval MD5HASH_GIVEN=$(shell head -n 1 $(FILEROOT).md5 | cut -f1 -d ' '))
-	@echo "\nValidating checksum...\n"
-	cd data/
-	$(MD5) lab0_spectral_data.md5
+	#@echo "\nValidating checksum...\n"
+	@echo "\nValidation is currently broken...\n"
+	#cd data/
+	#$(MD5) lab0_spectral_data.md5
 	#@if [ "$MD5HASH_GIVEN" = "$MD5HASH_GIVEN" ]; then \
 		#echo "The given MD5 checksum matches the calculated MD5 hash\n";\
 	#else \
