@@ -39,15 +39,15 @@ data :
 OS=$(shell uname)
 # Determine the OS, since md5 utilies vary
 ifeq ($(OS),Darwin)
-	MD5=md5
+	MD5=md5 -r
 else
 	MD5=md5sum
 endif
 validate :
-	@$(eval MD5HASH_CALC := $(shell $(MD5) -r $(FILEROOT).txt | cut -f1 -d ' '))
-	@$(eval MD5HASH_GIVEN := $(shell head -n 1 $(FILEROOT).md5 | cut -f1 -d ' '))
+	@$(eval MD5HASH_CALC=$(shell $(MD5) $(FILEROOT).txt | cut -f1 -d ' '))
+	@$(eval MD5HASH_GIVEN=$(shell head -n 1 $(FILEROOT).md5 | cut -f1 -d ' '))
 	@echo "\nValidating checksum...\n"
-	@if [ "$(MD5HASH_GIVEN)" == "$(MD5HASH_GIVEN)" ]; then \
+	@if [ "$MD5HASH_GIVEN" = "$MD5HASH_GIVEN" ]; then \
 		echo "The given MD5 checksum matches the calculated MD5 hash\n";\
 	else \
 		echo "Oh no! The data has been corrupted.";\
