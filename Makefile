@@ -41,13 +41,14 @@ OS=$(shell uname)
 ifeq ($(OS),Darwin)
 	MD5=md5 -r
 else
-	MD5=md5sum
+	MD5=md5sum -c
 endif
 validate :
 	#@$(eval MD5HASH_CALC=$(shell $(MD5) $(FILEROOT).txt | cut -f1 -d ' '))
 	#@$(eval MD5HASH_GIVEN=$(shell head -n 1 $(FILEROOT).md5 | cut -f1 -d ' '))
 	@echo "\nValidating checksum...\n"
-	MD5 $(FILEROOT).md5
+	cd data/
+	$(MD5) lab0_spectral_data.md5
 	#@if [ "$MD5HASH_GIVEN" = "$MD5HASH_GIVEN" ]; then \
 		#echo "The given MD5 checksum matches the calculated MD5 hash\n";\
 	#else \
