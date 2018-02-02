@@ -13,7 +13,11 @@ You must first have conda installed before the environment can be built. To inst
 make env
 ```
 
-This command will create a conda environment named `ne204lab0` (specified in the file environment.yml) with all Python packages required to run the analyses.
+This command will create a conda environment named `ne204lab0` (specified in the file environment.yml) with all Python packages required to run the analyses. This environment can be activated using
+
+```
+source activate ne204lab0
+```
 
 ### Running the analyses
 All code can be ran and figures saved by running
