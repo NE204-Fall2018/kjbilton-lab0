@@ -6,7 +6,7 @@ manuscript = report
 latexopt = -file-line-error -halt-on-error
 
 # Build the PDF of the lab report from the source files
-$(manuscript).pdf: $(manuscript).tex text/*.tex references.bib fig/*.png
+$(manuscript).pdf: $(manuscript).tex text/*.tex references.bib fig/*.eps
 	pdflatex $(latexopt) $(manuscript).tex
 	bibtex $(manuscript).aux
 	bibtex $(manuscript).aux
@@ -40,7 +40,6 @@ validate :
 	@echo "\nValidating data...\n"
 	@python scripts/validate.py
 
-
 ## test		: Run tests on analysis code
 test :
 	pytest
@@ -70,7 +69,6 @@ clean :
 	rm -f *.aux *.log *.bbl *.lof *.lot *.blg *.out *.toc *.run.xml *.bcf
 	rm -f text/*.aux
 	rm $(manuscript).pdf
-	rm scripts/*.pyc
 
 help : Makefile
 	@sed -n 's/^##//p' $<

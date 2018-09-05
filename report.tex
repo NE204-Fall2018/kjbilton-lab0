@@ -11,24 +11,22 @@
 \usepackage{graphicx}   % For images
 \usepackage[margin=1.0in]{geometry}
 \usepackage{float}
-%\usepackage[version=3]{mhchem} % For nuclide formatting
+\usepackage[version=3]{mhchem} % For nuclide formatting
 
 % All images/figures will be stored in the images folder.
 % Specify that here so pdflatex knows where to look for images.
 \graphicspath{{./fig/}}
 
 % Metadata
-\title{Lab 0: HPGe Spectroscopic Calibration}
+\title{On the Calibration of HPGe Spectra}
 \author{Kyle J. Bilton}
 \date{\today}
 %==============================================================================
 
 \begin{document}
 
-% Compile metadata from preamble into a nicely-rendered title section
 \maketitle
 
-% The *'s next so section/subsection definitions suppresses numbering
 \section*{Abstract}
 \label{sec:abstract}
 \input{text/abstract.tex}
@@ -51,7 +49,6 @@
 
 % Bibliography
 \bibliographystyle{plain}
-% Refers to a bibtex file in the current dir named "references.bib"
 \bibliography{references}
 
 \end{document}

@@ -19,6 +19,19 @@ This command will create a conda environment named `ne204lab0` (specified in the
 source activate ne204lab0
 ```
 
+### Getting the data
+Data is included for reproducibility purposes, but you could also download it using
+```
+make data
+```
+
+### Validating the data
+Compute the MD5 checksum of the data and compare it using
+```
+make validate
+```
+The python script `scripts/validate.py` was included to provide a uniform, cross-platform validation tool.
+
 ### Running the analyses
 All code can be ran and figures saved by running
 ```
