@@ -32,29 +32,13 @@ FILEROOT=$(LOCDATADIR)/lab$(LABNUMBER)_spectral_data
 data :
 	@echo "Downloading data..."
 	if [ ! -d 'data' ]; then mkdir data; fi
-	wget https://www.dropbox.com/s/k692avun0144n90/lab0_spectral_data.txt?dl=0 -O $(FILEROOT).txt
-	wget https://www.dropbox.com/s/6jquiryg6jskii0/lab0_spectral_data.md5?dl=0 -O $(FILEROOT).md5
+	wget https://www.dropbox.com/s/hutmwip3681xlup/lab0_spectral_data.txt?dl=0 -O $(FILEROOT).txt
+	wget https://www.dropbox.com/s/amumdrm9zp1kn8d/lab0_spectral_data.md5?dl=0 -O $(FILEROOT).md5
 
 ## validate	: Validate that downloaded data is not corrupted
-OS=$(shell uname)
-# Determine the OS, since md5 utilies vary
-ifeq ($(OS),Darwin)
-	MD5=md5 -r
-else
-	MD5=md5sum -c
-endif
 validate :
-	#@$(eval MD5HASH_CALC=$(shell $(MD5) $(FILEROOT).txt | cut -f1 -d ' '))
-	#@$(eval MD5HASH_GIVEN=$(shell head -n 1 $(FILEROOT).md5 | cut -f1 -d ' '))
-	#@echo "\nValidating checksum...\n"
-	@echo "\nValidation is currently broken...\n"
-	#cd data/
-	#$(MD5) lab0_spectral_data.md5
-	#@if [ "$MD5HASH_GIVEN" = "$MD5HASH_GIVEN" ]; then \
-		#echo "The given MD5 checksum matches the calculated MD5 hash\n";\
-	#else \
-		#echo "Oh no! The data has been corrupted.";\
-	#fi
+	@echo "\nValidating data...\n"
+	@python scripts/validate.py
 
 
 ## test		: Run tests on analysis code
