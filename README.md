@@ -45,3 +45,10 @@ Modules can be tested from the top-level directory with the command
 make test
 ```
 This runs all tests within the `test` directory.
+
+### Building the report
+This report uses the `IEEETran` TeX class, which is not installed by default. If you don't already have this class installed on your system, you can use it locally by running
+```
+make ieee
+```
+which will download the file `IEEETran.cls`.
