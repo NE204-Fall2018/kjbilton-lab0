@@ -26,7 +26,7 @@ env : $(CONDA_REQUIREMENTS)
 	fi
 	conda env create -f $(CONDA_REQUIREMENTS)
 
-## data		: Get/download necessary data
+## data		: Download necessary data
 LOCDATADIR=data
 FILEROOT=$(LOCDATADIR)/lab$(LABNUMBER)_spectral_data
 data :
@@ -34,6 +34,11 @@ data :
 	if [ ! -d 'data' ]; then mkdir data; fi
 	wget https://www.dropbox.com/s/hutmwip3681xlup/lab0_spectral_data.txt?dl=0 -O $(FILEROOT).txt
 	wget https://www.dropbox.com/s/amumdrm9zp1kn8d/lab0_spectral_data.md5?dl=0 -O $(FILEROOT).md5
+
+## ieee		: Download IEEE TeX class
+ieee :
+	@echo "Downloading IEEETran.cls..."
+	wget http://mirrors.ctan.org/macros/latex/contrib/IEEEtran/IEEEtran.cls
 
 ## validate	: Validate that downloaded data is not corrupted
 validate :
@@ -74,4 +79,4 @@ help : Makefile
 	@sed -n 's/^##//p' $<
 
 # Make keyword for commands that don't have dependencies
-.PHONY : env test data validate analysis uninstall clean help
+.PHONY : env test data validate analysis uninstall clean help ieee

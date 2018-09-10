@@ -1,0 +1,62 @@
+Measurements of various gamma-ray sources using a coaxial HPGe were performed and provided by by Dr. Ross Barnowski.
+The measurements were performed using a 13-bit resolution MCA, yielding 8192-bin spectra.
+The procedure for taking the measurements presumably involved placing a source at a specific location and recording counts for a period of time, and repeating for each source.
+The source location should be the same for each source, and should be close enough to yield a high number of counts in a reasonable amount of time, but also should not be so close that it results in the detector having a high dead time.
+The spectra used in this analysis are shown in Figure \label{fig:spectra}.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=6.5in]{spectra.eps}
+\caption{Spectra captured by the HPGe used in the calibration procedure. \ce{^{241}Am} (left), \ce{^{133}Ba} and \ce{^{137}Cs} (center), and \ce{^{60}Co} and \ce{^{152}Eu} (right).}
+\label{fig:spectra}
+\end{figure*}
+
+The lines of interest, given in Table \ref{tab:src} \cite{lund}, were primarily chosen based on their branching ratios, as those with the highest branching ratios tend to be the most visible within a spectrum.
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\caption{Gamma-ray lines used in the calibration}
+\label{tab:src}
+\centering
+\begin{tabular}{l|r}
+\hline
+\bfseries Source & \bfseries Energy (keV)\\
+\hline\hline
+      $^{241}$Am    &  59.541    \\
+      $^{133}$Ba    &  80.997    \\
+                    &  356.017   \\
+      $^{60}$Co     &  1173.237  \\
+                    &  1332.501  \\
+      $^{137}$Cs    &  661.657   \\
+      $^{152}$Eu    &  121.781   \\
+                    &  1408.006  \\
+\hline
+\end{tabular}
+\end{table}
+
+For each gamma-ray energy of interest, the line was found by inspecting the spectrum of the associated source and then fit with a Gaussian function in the form
+\begin{equation}
+G(x; A, \mu, \sigma) = A\exp\bigg(-\frac{(x-\mu)^2}{2\sigma^2}\bigg)
+\end{equation}
+
+The relevant parameter for an energy calibration is the centroid $\mu$ of the fit, though it is worth noting that the other parameters also contain valuable information, for example, in determining the full-width at half-max (FWHM) energy resolution.
+
+After determining the centroid $C_i = \mu_i$ for each energy of interest, a regression is performed between $C_i$ and the associated energy $E_i$. While there may exist slight nonlinearities in the relationship between the MCA channel and energy, often times, a linear fit between $C_i$ and $E_i$ is sufficient.
+In particular, we wish to find coefficients
+$\vec{a} = \begin{bmatrix}a_0, a_1 \end{bmatrix}$ such that
+
+\begin{equation}
+    \begin{bmatrix}
+        E_0 \\ E_1 \\ \vdots \\ E_n
+    \end{bmatrix} =
+    \begin{bmatrix}
+        1 & C_0 \\
+        1 & C_1 \\
+        \vdots & \vdots \\
+        1 & C_n \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        a_0 \\ a_1
+    \end{bmatrix}
+\end{equation}
+where $n$ is the number of gamma-ray lines used. This equation can then be inverted (e.g., using least squares) to yield a linear model.

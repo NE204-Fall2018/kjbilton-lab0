@@ -1,5 +1,4 @@
-% Basic LaTeX template for NE 204 lab report
-\documentclass[11pt]{article}
+\documentclass[journal]{IEEEtran}
 
 %==============================================================================
 %%% Everything between the "="'s is the preamble.
@@ -9,7 +8,6 @@
 \usepackage{amsmath}    % Expanded math
 \usepackage{amssymb}    % Expanded math symbols
 \usepackage{graphicx}   % For images
-\usepackage[margin=1.0in]{geometry}
 \usepackage{float}
 \usepackage[version=3]{mhchem} % For nuclide formatting
 
@@ -18,37 +16,40 @@
 \graphicspath{{./fig/}}
 
 % Metadata
-\title{On the Calibration of HPGe Spectra}
-\author{Kyle J. Bilton}
-\date{\today}
+\title{On the Calibration of Spectroscopic Data from High-purity Germanium Detectors}
+\author{Kyle J. Bilton%
+\thanks{Kyle~J.~Bilton is with the Department of Nuclear Engineering at the University of California, Berkeley, Berkeley, CA 94720 USA. (email:~\mbox{kjbilton@berkeley.edu})}}
+
 %==============================================================================
 
 \begin{document}
 
 \maketitle
 
-\section*{Abstract}
-\label{sec:abstract}
-\input{text/abstract.tex}
+\begin{abstract}
+An overview of gamma-ray spectroscopic calibrations of an HPGe detector is provided.
+Nonlinear fits using known gamma-ray lines from five sources is performed, providing a means to map spectroscopic signals from HPGe detectors to gamma-ray energies.
+\end{abstract}
 
-\section*{Introduction}
+
+\section{Introduction}
 \label{sec:intro}
-\input{text/introduction.tex}
+\input{text/01-introduction.tex}
 
-\section*{Methods}
+\section{Methods}
 \label{sec:meth}
-\input{text/methods.tex}
+\input{text/02-methods.tex}
 
-\section*{Results}
+\section{Results}
 \label{sec:res}
-\input{text/results.tex}
+\input{text/03-results.tex}
 
-\section*{Discussion}
+\section{Discussion}
 \label{sec:disc}
-\input{text/discussion.tex}
+\input{text/04-discussion.tex}
 
 % Bibliography
-\bibliographystyle{plain}
+\bibliographystyle{IEEEtran}
 \bibliography{references}
 
 \end{document}
