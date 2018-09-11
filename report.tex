@@ -9,6 +9,7 @@
 \usepackage{amssymb}    % Expanded math symbols
 \usepackage{graphicx}   % For images
 \usepackage{float}
+\usepackage[plain]{fancyref}
 \usepackage[version=3]{mhchem} % For nuclide formatting
 
 % All images/figures will be stored in the images folder.
@@ -16,7 +17,7 @@
 \graphicspath{{./fig/}}
 
 % Metadata
-\title{On the Calibration of Spectroscopic Data from High-purity Germanium Detectors}
+\title{On the Calibration of Spectroscopic Data from High-purity Germanium Gamma-ray Detectors}
 \author{Kyle J. Bilton%
 \thanks{Kyle~J.~Bilton is with the Department of Nuclear Engineering at the University of California, Berkeley, Berkeley, CA 94720 USA. (email:~\mbox{kjbilton@berkeley.edu})}}
 
@@ -27,8 +28,12 @@
 \maketitle
 
 \begin{abstract}
-An overview of gamma-ray spectroscopic calibrations of an HPGe detector is provided.
-Nonlinear fits using known gamma-ray lines from five sources is performed, providing a means to map spectroscopic signals from HPGe detectors to gamma-ray energies.
+To provide meaningful, interpretable results, gamma-ray spectrometers must be calibrated.
+A procedure is outlined for calibrations of spectroscopic gamma-ray from high-purity germanium (HPGe) detectors.
+In particular, a ordinary least squares regression is performed between electronic signals resulting from measurements of standard gamma-ray sources and their well-characterized energies.
+The calibration procedure is demonstrated using five common lab sources.
+The resulting relationship between channel number and energy shows to generalize well within the energy range of interest.
+The methods presented in this paper are broadly applicable to HPGe detectors, as well as other standard spectroscopic gamma-ray detectors.
 \end{abstract}
 
 

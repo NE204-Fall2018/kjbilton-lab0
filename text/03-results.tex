@@ -1,18 +1,21 @@
-In the simplest case, we can use two points to determine a linear relationship
-using ordinary least squares. We used a two point fit with $^{137}$Cs and
-$^{241}$Am to give the model
+In the simplest case, we can use two points to determine a linear relationship using ordinary least squares (OLS) regression.
+We used a two point fit with \ce{$^{137}$Cs} and \ce{$^{241}$Am} to give the model
 
 \begin{equation}
-E = 1.181 + 0.281 C
+\label{eq:cal}
+E_k = 1.181 + 0.281k
 \end{equation}
+where $k$ is the bin number.
 
-We can then use this model to estimate at which bins lines from $^{133}$Ba are
-expected to fall in.
 
-\begin{table}[!t]
+To evaluate the performance of this model, we estimate at which bins lines from \ce{$^{133}$Ba} are expected to fall in, and compare this to what has been measured.
+Table \ref{tab:barium} shows measured and estimated energies for \ce{^{133} Ba}, as well as the percent error.
+We see that the two estimated energies are quite close to the actual energies.
+
+\begin{table}
 \renewcommand{\arraystretch}{1.3}
-\caption{Calibration sources}
-\label{tab:sources}
+\caption{Measured and estimated source energies for \ce{^{133} Ba}}
+\label{tab:barium}
 \centering
 \begin{tabular}{l|c|c|r}
 \hline
@@ -24,14 +27,22 @@ expected to fall in.
 \end{tabular}
 \end{table}
 
-We see that the two estimated energies are quite close to the actual energies. In addition to using two points,
-it is also worth considering using additional data points, including some at higher energies. An ordinary least
-squares fit was performed on several points to obtain the line below. The solid line in Figure \ref{fig:fit} shows a fit using all data points,
-while the dashed line shows the two-point relationship.
+In addition to the two points used here, it is also worth considering using additional data points, including some at higher energies.
+OLS was performed on several points to obtain the line below.
+The solid line in Figure \ref{fig:fit} shows a fit using all data points, while the dashed line shows the two-point relationship.
 
-\begin{figure}[!t]
+\begin{figure}
 \centering
 \includegraphics[width=3.5in]{calibration_fit.eps}
 \caption{Resulting calibration fit}
 \label{fig:fit}
 \end{figure}
+
+The spectra shown in \Fref{fig:spectra} could then be translated into energies using \Fref{eq:cal}.
+Calibrated spectra are shown in \Fref{fig:spectra_cal}
+\begin{figure*}[t!]
+\centering
+\includegraphics[width=6.5in]{calibrated_spectra.eps}
+\caption{Energy-calibrated spectra captured by the HPGe used in the calibration procedure. \ce{^{241}Am} (left), \ce{^{133}Ba} and \ce{^{137}Cs} (center), and \ce{^{60}Co} and \ce{^{152}Eu} (right).}
+\label{fig:spectra_cal}
+\end{figure*}

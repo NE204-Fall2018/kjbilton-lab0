@@ -1,10 +1,22 @@
 The resulting fit from our linear regression can then be used for mapping
-MCA channels to gamma-ray energy. For routine lab meaurements and estimations,
-experts often time only use two energy measurements from a single source to determine a linear fit
-\cite{gilmore_2011}. While a linear fit is generally sufficient, some
-specific applications may require nonlinear fitting. This can easily be accomplished
-my creating a feature matrix using higher powers of the measured centroids $C_i$ and
-again fitting with ordinary least squares.
+MCA channels to gamma-ray energy. For routine lab meaurements and estimations, experts often time only use two energy measurements from a single source to determine a linear fit \cite{gilmore_2011}.
+While a linear fit is generally sufficient, some specific applications may require nonlinear fitting.
+This can easily be accomplished by including higher-orders of the centroid $C_i$
+\begin{equation}
+    \begin{bmatrix}
+        E_0 \\ E_1 \\ \vdots \\ E_n
+    \end{bmatrix} =
+    \begin{bmatrix}
+        1 & C_0  & C_0^2 & \dots &  C_0^m\\
+        1 & C_1  & C_1^2 & \dots &  C_1^m\\
+        \vdots & \vdots \\
+        1 & C_n  & C_n^2 & \dots &  C_n^m\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        a_0 \\ a_1 \\ a_2 \\ \vdots \\ a_m
+    \end{bmatrix}
+\end{equation}
+As before, the weights $\mathbf{a}$ can be found using OLS.
 
 Aside from using a higher-order model, one could also improve the fit used to
 determine the peaks. Here, a Gaussian model was assumed, and no linear offset

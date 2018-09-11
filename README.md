@@ -51,7 +51,7 @@ This report uses the `IEEETran` TeX class, which is not installed by default. If
 ```
 make ieee
 ```
-which will download the file `IEEETran.cls`. The report can then be build using
+which will download the file `IEEETran.cls`. The report can then be built using
 ```
 make
 ```
